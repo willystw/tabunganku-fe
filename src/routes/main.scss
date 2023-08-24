@@ -1,0 +1,123 @@
+$earning-text-color:#2A8747;
+$expense-text-color:#C55147;
+
+// Dashboard Overview Grid
+
+.dashboard {
+  --column-count: 2;
+
+  // Flexbox Fallback
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(var(--spacing) * -0.5);
+
+  // Grid
+  display: grid;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  grid-gap: var(--spacing);
+
+  &__item {
+    // By default, items span 2 columns
+    flex: 1 1 50%;
+    grid-column-end: span 2;
+    padding: calc(var(--spacing) / 2);
+
+    // these span the full width
+    &--full {
+      flex-basis: 100%;
+      grid-column: 1 / -1;
+    }
+
+    // these span only one column
+    &--col {
+      flex-basis: 100%;
+      grid-column-end: span 6;
+    }
+  }
+
+  // Switch to 6-col grid on larger screens
+  @media screen and (min-width: 48rem) {
+    --column-count: 6;
+  }
+
+  // If we have grid support, reset the margins and paddings;
+  // grid-gap handles the spacing for us.
+  @supports (display: grid) {
+    margin: 0;
+
+    &__item {
+      padding: 0;
+    }
+  }
+
+  &__table {
+    display: flex;
+    min-width: 0;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 100vh;
+
+    table {
+        table-layout: fixed;
+        max-width: 100%;
+        min-width: 30%;
+        margin-left: auto;
+        margin-right: auto; 
+
+        thead th {
+            position: sticky;
+            top: 0; 
+            z-index: 1;
+        }
+    }
+  }
+}
+
+.bigvalue {
+    text-align: center;
+    
+    &__earning {
+        color: $earning-text-color;
+    }
+
+    &__expense {
+        color: $expense-text-color;
+    }
+}
+
+.chart {
+    position: relative;
+    max-height: 100vh;
+}
+
+.transaction__amount {
+    display: block;
+    text-align: right;
+
+    &__positive {
+        color: $earning-text-color;
+    }
+
+    &__negative {
+        color: $expense-text-color;
+    }
+}
+
+.table {
+    &__number {
+        text-align: right;
+    }
+
+    &__default {
+        text-align: left;
+    }
+
+}
+th {
+     background:#EEEEEE; 
+     font-weight: normal;
+}
+
+td {
+    vertical-align: top;
+}

@@ -1,0 +1,27 @@
+.theForm {
+    display: grid;
+    grid-template-columns: [labels] auto [controls] 1fr ; 
+    grid-auto-flow: row;
+    gap: calc(10% + .8em) 10%;
+    padding: 2em;
+
+    &__label {
+        display: grid;
+        grid-column: labels;
+        grid-row: auto; 
+        align-items: center;
+    }
+
+    &__input {
+        grid-column: controls;
+        grid-row: auto;
+        border: 1px solid #67B7D1;
+        padding: 1em;
+        border-radius: 8px;
+    }
+
+    &__button {
+        background: #67B7D1;
+    }
+}
+
