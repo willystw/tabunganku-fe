@@ -78,7 +78,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About Tabunganku
+## About The Project
 
 [![Tabunganku Screen Shot][product-screenshot]](https://example.com)
 
