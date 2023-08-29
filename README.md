@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/willystw/tabunganku-fe">
-    <img src="docs/images/tabunganku-favicon.svg" alt="Logo" width="80" height="80">
+    <img src="docs/images/logo.svg" alt="Logo" width="80" height="80">
   </a>
 <h3 align="center">Tabunganku</h3>
 
