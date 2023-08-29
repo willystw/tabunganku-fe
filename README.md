@@ -85,9 +85,7 @@
 
 [![Tabunganku Screen Shot][product-screenshot]](https://example.com)
 
-I create Tabunganku because I use a similar expense tracking application on my mobile, and I want more customizability.
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `willystw`, `tabunganku-fe`, `twitter_handle`, `linkedin_username`, `gmail`, `fwillysetiawan`, `Tabunganku`, `Frontend of Tabunganku: an application to track your spending.`
+Tabunganku is an expense tracking application. I create Tabunganku because I use a similar expense tracking application on my mobile, and I want more customizability. This repo only covers the frontend part. For the backend part, refer to [here][tabunganku-backend]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -114,34 +112,40 @@ To get a local copy up and running follow these simple example steps.
   ```
 
 ### Installation
-
-1. Clone the repo
+1. Start [Tabunganku backend][tabunganku-backend] server.
+2. Clone the repo
    ```sh
    git clone https://github.com/willystw/tabunganku-fe.git
    ```
-2. Install NPM packages
+3. Install NPM packages
    ```sh
    npm install
    ```
-3. Enter your API in `config.js`
+4. Enter these values in `.env` file
    ```js
-   const API_KEY = 'ENTER YOUR API';
+    HOST_URL="<endpoint_to_backend_server>"
+    USER_ID=<user_id>
+   ```
+5. Run the application
+   ```sh
+   npm run dev
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Add New Category
+To add a new transaction, we have to create a category first. Click `Add Category` menu to add a category.
+![Add Category Page][add-category-screenshot]
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+### Add New Transaction
+Now, we can add a transaction. Go to `Add Transaction` menu to add a new entry.
+![Add Transaction Page][add-transaction-screenshot]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -218,6 +222,8 @@ Project Link: [https://github.com/willystw/tabunganku-fe](https://github.com/wil
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/willy-s-0147561a6
 [product-screenshot]: docs/images/screenshot.png
+[add-category-screenshot]: docs/images/add_category.png
+[add-transaction-screenshot]: docs/images/add_transaction.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
@@ -234,3 +240,4 @@ Project Link: [https://github.com/willystw/tabunganku-fe](https://github.com/wil
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
 [JQuery-url]: https://jquery.com 
+[tabunganku-backend]: https://github.com/willystw/tabunganku
