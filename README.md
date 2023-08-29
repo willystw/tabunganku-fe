@@ -81,9 +81,11 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About Tabunganku
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Tabunganku Screen Shot][product-screenshot]](https://example.com)
+
+I create Tabunganku because I use a similar expense tracking application on my mobile, and I want more customizability.
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `willystw`, `tabunganku-fe`, `twitter_handle`, `linkedin_username`, `gmail`, `fwillysetiawan`, `Tabunganku`, `Frontend of Tabunganku: an application to track your spending.`
 
@@ -102,12 +104,10 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
@@ -115,16 +115,15 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/willystw/tabunganku-fe.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
+3. Enter your API in `config.js`
    ```js
    const API_KEY = 'ENTER YOUR API';
    ```
@@ -147,10 +146,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Login Page
+- [ ] Previous and Next Date
 
 See the [open issues](https://github.com/willystw/tabunganku-fe/issues) for a full list of proposed features (and known issues).
 
@@ -199,9 +196,8 @@ Project Link: [https://github.com/willystw/tabunganku-fe](https://github.com/wil
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [README Template](https://github.com/othneildrew/Best-README-Template)
+* [chart.js](https://www.chartjs.org/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -220,7 +216,7 @@ Project Link: [https://github.com/willystw/tabunganku-fe](https://github.com/wil
 [license-shield]: https://img.shields.io/github/license/willystw/tabunganku-fe.svg?style=for-the-badge
 [license-url]: https://github.com/willystw/tabunganku-fe/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://linkedin.com/in/willy-s-0147561a6
 [product-screenshot]: docs/images/screenshot.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
