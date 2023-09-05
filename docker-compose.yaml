@@ -1,0 +1,14 @@
+version: "3"
+services:
+  frontend:
+    container_name: tabunganku-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: img-tabunganku-frontend:latest
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    extra_hosts:
+      - host.docker.internal:host-gateway
