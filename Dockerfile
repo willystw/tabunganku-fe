@@ -9,11 +9,12 @@ RUN npm run build
 RUN npm prune --production
 
 FROM node:20-alpine
-
+RUN adduser -D nodeuser
 RUN mkdir -p /app
+RUN chown nodeuser:nodeuser /app
 WORKDIR /app
-COPY --from=build /app/build build/
-COPY --from=build /app/node_modules node_modules/
+COPY --from=build --chown=nodeuser:nodeuser /app/build build/
+COPY --from=build --chown=nodeuser:nodeuser /app/node_modules node_modules/
 COPY package.json .
 
 EXPOSE 3000
