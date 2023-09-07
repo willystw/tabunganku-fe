@@ -18,4 +18,5 @@ COPY --from=build --chown=nodeuser:nodeuser /app/node_modules node_modules/
 COPY package.json .
 
 EXPOSE 3000
-CMD ORIGIN=http://localhost:3000 node build
+ENV ORIGIN=http://localhost:3000
+CMD ["node", "build"]

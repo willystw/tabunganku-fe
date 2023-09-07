@@ -5,10 +5,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: img-tabunganku-frontend:latest
+    image: tabunganku-frontend:latest
     ports:
       - 3000:3000
     env_file:
       - .env
-    extra_hosts:
-      - host.docker.internal:host-gateway
+    networks:
+      fe-network:
+        ipv4_address: 172.20.10.4
+networks:
+  fe-network:
+    name: tabunganku-network
+    external: true
