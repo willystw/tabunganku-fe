@@ -1,0 +1,19 @@
+version: "3"
+services:
+  frontend:
+    container_name: tabunganku-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tabunganku-frontend:latest
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    networks:
+      fe-network:
+        ipv4_address: 172.20.10.4
+networks:
+  fe-network:
+    name: tabunganku-network
+    external: true
