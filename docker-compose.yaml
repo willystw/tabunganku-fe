@@ -10,6 +10,7 @@ services:
       - 3000:3000
     env_file:
       - .env
+    restart: always
     networks:
       fe-network:
         ipv4_address: 172.20.10.4
