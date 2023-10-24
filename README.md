@@ -188,7 +188,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Willy Setiawan - fwillysetiawan@gmail.com
+Willy Setiawan - https://www.linkedin.com/in/willy-s-0147561a6/
 
 Project Link: [https://github.com/willystw/tabunganku-fe](https://github.com/willystw/tabunganku-fe)
 
