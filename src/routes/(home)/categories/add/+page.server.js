@@ -11,7 +11,6 @@ export const actions = {
             category_name: name,
             transaction_type: transactionType
         }
-
         const res = await fetch(`${process.env.HOST_URL}/users/${process.env.USER_ID}/categories/add`, {
             method: 'POST',
             headers: {
