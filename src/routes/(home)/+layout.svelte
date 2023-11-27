@@ -12,6 +12,7 @@
       </a>
       <div class="toolbar">
         <strong class="username">{user.username}</strong>
+        <strong class="logout">Logout</strong>
       </div>
     </header>
     <nav class="admin__nav">

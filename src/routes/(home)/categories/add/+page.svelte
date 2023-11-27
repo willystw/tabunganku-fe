@@ -1,5 +1,4 @@
 <style src="./categories.scss"></style>
-
 <main class="admin__main">
     <h2>Add Category</h2>
     <form method= "POST" class="theForm" action="?/addCategory">
