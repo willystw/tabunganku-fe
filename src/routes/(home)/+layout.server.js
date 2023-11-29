@@ -1,12 +1,10 @@
 import { redirect } from '@sveltejs/kit';
 import 'dotenv-expand/config'
 
-/** @type {import('./$types').PageServerLoad} */
-export function load(event) {
-  if (!event.locals.user) {
-    throw redirect(302, "/login")
+
+/** @type {import('./$types').LayoutServerLoad} */
+export async function load(event) {
+  return {
+    user: event.locals.user
   }
-	return {
-		user: event.locals.user
-	};
 }
