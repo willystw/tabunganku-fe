@@ -12,6 +12,5 @@ export async function getUser() {
 /** @type {import('@sveltejs/kit').Handle} */
 export async function handle({ event, resolve }) {
 	event.locals.user = await getUser();
-
 	return resolve(event);
 }
