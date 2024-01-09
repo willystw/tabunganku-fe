@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-node';
 import preprocess from 'svelte-preprocess';
+import cspDirectives from './csp-directives.mjs';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -12,7 +13,11 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({
       out: 'build'
-    })
+    }),
+    csp: {
+      mode: 'auto',
+			directives: cspDirectives,
+		}
 	}
 };
 

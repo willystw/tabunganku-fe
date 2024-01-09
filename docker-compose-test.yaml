@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: tabunganku-frontend:latest
+    image: tabunganku-frontend
     ports:
       - 3000:3000
     env_file:

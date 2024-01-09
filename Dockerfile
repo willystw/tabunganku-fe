@@ -12,6 +12,7 @@ FROM node:20-alpine
 RUN adduser -D nodeuser
 RUN mkdir -p /app
 RUN chown nodeuser:nodeuser /app
+USER nodeuser
 WORKDIR /app
 COPY --from=build --chown=nodeuser:nodeuser /app/build build/
 COPY --from=build --chown=nodeuser:nodeuser /app/node_modules node_modules/

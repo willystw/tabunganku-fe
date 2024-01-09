@@ -1,6 +1,8 @@
 import 'dotenv-expand/config'
+import type { PageServerLoad } from './$types';
 
-export const load = async ({fetch}) => {
+export const load: PageServerLoad = async ({parent, fetch, cookies}) => {
+    const parentData = await parent();
     const getTodayDate = async() => {
         let now = new Date(), month, day, year;
         let dateString;
@@ -19,12 +21,12 @@ export const load = async ({fetch}) => {
     }
 
     const getTransactionSummaries = async() => {
-        const todayDate = await getTodayDate();
-        const endpoint = `${process.env.HOST_URL}/users/${process.env.USER_ID}/transactions/summary/${todayDate}`;
-        const transactionRes = await fetch(endpoint)
-        const transactionData = await transactionRes.json()
+      const todayDate = await getTodayDate();
+      const endpoint = `${process.env.HOST_URL}/users/${process.env.USER_ID}/transactions/summary/${todayDate}`;
+      const transactionRes = await fetch(endpoint);
+      const transactionData = await transactionRes.json();
 
-        return transactionData       
+      return transactionData;
     }
 
     return {
