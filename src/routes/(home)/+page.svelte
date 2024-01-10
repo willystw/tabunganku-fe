@@ -7,7 +7,6 @@
   import { onMount } from 'svelte';
 
   Chart.register(Colors);
-	let now = new Date(), month, day, year;
 	let dateString;
 	
   let portfolio;
@@ -15,21 +14,21 @@
   let totalExpense;
 
   const chartData = {
-      labels: summaries['available_categories'],
-      datasets: [
-          {
-              label: 'Earning',
-              data: summaries['earnings'],
-              hoverOffset: 10,
-              borderWidth: 0
-          },
-          {
-              label: 'Expense',
-              data: summaries['expenses'],
-              borderWidth: 0,
-              hoverOffset: 10,
-          }
-      ]
+    labels: summaries['available_categories'],
+    datasets: [
+      {
+          label: 'Earning',
+          data: summaries['earnings'],
+          hoverOffset: 10,
+          borderWidth: 0
+      },
+      {
+          label: 'Expense',
+          data: summaries['expenses'],
+          borderWidth: 0,
+          hoverOffset: 10,
+      }
+    ]
   };
   const config = {
       type: 'pie',
@@ -40,35 +39,28 @@
           maintainAspectRatio: false,
           spacing: 0,
           plugins: {
-              legend: {
-                  position: 'bottom',
-                  display: true,
-                  labels: {
-                      usePointStyle: true,
-                      padding: 20,
-                      font: {
-                          size: 14
-                      }
-                  }
-              },
-              title: {
-                  display: true,
-                  text: 'Portfolio'
+            legend: {
+              position: 'bottom',
+              display: true,
+              labels: {
+                usePointStyle: true,
+                padding: 20,
+                font: {
+                    size: 14
+                }
               }
+            },
+            title: {
+              display: true,
+              text: 'Portfolio'
+            }
           }
       }
   };
+  $: date = new Date();
+  $: dateString = date.toJSON().slice(0,10);
+
   onMount(()=> {
-      month = '' + (now.getMonth() + 1),
-      day = '' + now.getDate(),
-      year = now.getFullYear();
-
-      if (month.length < 2) 
-          month = '0' + month;
-      if (day.length < 2) 
-          day = '0' + day;
-
-      dateString = [year, month, day].join('-');
       totalEarning = summaries['total_earning'].toLocaleString();
       totalExpense = '(' + summaries['total_expense'].toLocaleString() + ')';
 

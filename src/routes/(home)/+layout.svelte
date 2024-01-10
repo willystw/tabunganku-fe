@@ -1,9 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   export let data;
+  export let {keycloak} = data;
 
   onMount(() => {
-    if (!data.keycloak) {
+    if (!keycloak) {
       window.location.reload();
     }
   });
@@ -17,7 +18,7 @@
     </a>
     <nav class="toolbar">
       <span>Hi,
-        <strong class="username"> {data.user.username} </strong>!
+        <strong class="username"> {keycloak.tokenParsed.preferred_username} </strong>!
       </span>
       <a href="/logout" class="logout">Logout</a>
     </nav>
@@ -32,7 +33,7 @@
       </li>
     </ul>
   </nav>
-  {#if data.keycloak}
+  {#if keycloak}
     <slot/>
   {/if}
 </div>

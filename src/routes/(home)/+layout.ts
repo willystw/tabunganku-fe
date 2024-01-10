@@ -27,10 +27,8 @@ export const load: LayoutLoad = async ({data}) => {
       }
     });
   }
-  let { user } = data;
 
   return {
     keycloak: keycloakPromise,
-    user,
   };
 };
