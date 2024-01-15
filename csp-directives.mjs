@@ -1,10 +1,9 @@
-const rootDomain = process.env.DOMAIN; // or your server IP for dev
+const rootDomain = process.env.TABUNGANKU_URL; // or your server IP for dev
 
 const cspDirectives = {
 	'base-uri': ["'self'"],
 	'child-src': ["'self'"],
 	'connect-src': ["'self'", 'ws://localhost:*', "http://172.20.10.5:8180"],
-	// 'connect-src': ["'self'", 'ws://localhost:*', 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
 	'img-src': ["'self'", 'data:'],
 	'font-src': ["'self'", 'data:'],
 	'form-action': ["'self'"],
@@ -12,40 +11,17 @@ const cspDirectives = {
 	'frame-src': [
 		"'self'",
     "http://172.20.10.5:8180",
-		// "https://*.stripe.com",
-		// "https://*.facebook.com",
-		// "https://*.facebook.net",
-		// 'https://hcaptcha.com',
-		// 'https://*.hcaptcha.com',
 	],
 	'manifest-src': ["'self'"],
 	'media-src': ["'self'", 'data:'],
 	'object-src': ["'none'"],
 	'style-src': ["'self'", "'unsafe-inline'"],
-	// 'style-src': ["'self'", "'unsafe-inline'", 'https://hcaptcha.com', 'https://*.hcaptcha.com'],
 	'default-src': [
 		'self',
 		...(rootDomain ? [rootDomain, `ws://${rootDomain}`] : []),
-		// 'https://*.google.com',
-		// 'https://*.googleapis.com',
-		// 'https://*.firebase.com',
-		// 'https://*.gstatic.com',
-		// 'https://*.cloudfunctions.net',
-		// 'https://*.algolia.net',
-		// 'https://*.facebook.com',
-		// 'https://*.facebook.net',
-		// 'https://*.stripe.com',
-		// 'https://*.sentry.io',
 	],
 	'script-src': [
 		'self',
-		// 'https://*.stripe.com',
-		// 'https://*.facebook.com',
-		// 'https://*.facebook.net',
-		// 'https://hcaptcha.com',
-		// 'https://*.hcaptcha.com',
-		// 'https://*.sentry.io',
-		// 'https://polyfill.io',
 	],
 	'worker-src': ["'self'"],
 };
