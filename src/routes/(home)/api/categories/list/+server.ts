@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 import cookie from 'cookie';
-import {TABUNGANKU_BE_URL, TABUNGANKU_USER_ID} from '$env/static/private';
+import {TABUNGANKU_BE_URL} from '$env/static/private';
 
 export const GET: RequestHandler = async ({ url, request, fetch }) => {
   const cookieValue = cookie.parse(request.headers.get('Cookie'));
@@ -9,7 +9,7 @@ export const GET: RequestHandler = async ({ url, request, fetch }) => {
   const requestHeaders: HeadersInit = new Headers();
   requestHeaders.set('Authorization', `Bearer ${kcCookie}`);
 
-  const res = await fetch(`${TABUNGANKU_BE_URL}/users/${TABUNGANKU_USER_ID}/categories/list`, {
+  const res = await fetch(`${TABUNGANKU_BE_URL}/categories/list`, {
     method: 'GET',
     headers: requestHeaders,
   });

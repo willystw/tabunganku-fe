@@ -1,6 +1,6 @@
 import type { RequestHandler } from './$types';
 import cookie from 'cookie';
-import {TABUNGANKU_BE_URL, TABUNGANKU_USER_ID} from '$env/static/private';
+import {TABUNGANKU_BE_URL} from '$env/static/private';
 
 export const POST: RequestHandler = async ({ url, request, fetch }) => {
   const req = await request.json();
@@ -12,7 +12,7 @@ export const POST: RequestHandler = async ({ url, request, fetch }) => {
   const requestHeaders: HeadersInit = new Headers();
   requestHeaders.set('Authorization', `Bearer ${kcCookie}`);
 
-  const res = await fetch(`${TABUNGANKU_BE_URL}/users/${TABUNGANKU_USER_ID}/transactions/summary/${date}`, {
+  const res = await fetch(`${TABUNGANKU_BE_URL}/transactions/summary/${date}`, {
     method: 'GET',
     headers: requestHeaders,
   });
