@@ -1,81 +1,77 @@
 <script>
-    export let data;
-    const { summaries } = data;
+  export let data;
+  const { summaries } = data;
 
-    import Chart from 'chart.js/auto';
-    import { Colors } from 'chart.js';
-    import { onMount } from 'svelte';
+  import Chart from 'chart.js/auto';
+  import { Colors } from 'chart.js';
+  import { onMount } from 'svelte';
 
-    Chart.register(Colors);
-	let now = new Date(), month, day, year;
+  Chart.register(Colors);
 	let dateString;
 	
-    let portfolio;
-    let totalEarning;
-    let totalExpense;
+  let portfolio;
+  let totalEarning;
+  let totalExpense;
 
-    const chartData = {
-        labels: summaries['available_categories'],
-        datasets: [
-            {
-                label: 'Earning',
-                data: summaries['earnings'],
-                hoverOffset: 10,
-                borderWidth: 0
-            },
-            {
-                label: 'Expense',
-                data: summaries['expenses'],
-                borderWidth: 0,
-                hoverOffset: 10,
-            }
-        ]
-    };
-    const config = {
-        type: 'pie',
-        data: chartData,
-        options: {
-            borderRadius: '10',
-            responsive: true,
-            maintainAspectRatio: false,
-            spacing: 0,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    display: true,
-                    labels: {
-                        usePointStyle: true,
-                        padding: 20,
-                        font: {
-                            size: 14
-                        }
-                    }
-                },
-                title: {
-                    display: true,
-                    text: 'Portfolio'
+  const chartData = {
+    labels: summaries['available_categories'],
+    datasets: [
+      {
+          label: 'Earning',
+          data: summaries['earnings'],
+          hoverOffset: 10,
+          borderWidth: 0
+      },
+      {
+          label: 'Expense',
+          data: summaries['expenses'],
+          borderWidth: 0,
+          hoverOffset: 10,
+      }
+    ]
+  };
+  const config = {
+      type: 'pie',
+      data: chartData,
+      options: {
+          borderRadius: '10',
+          responsive: true,
+          maintainAspectRatio: false,
+          spacing: 0,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              display: true,
+              labels: {
+                usePointStyle: true,
+                padding: 20,
+                font: {
+                    size: 14
                 }
+              }
+            },
+            title: {
+              display: true,
+              text: 'Portfolio'
             }
-        }
-    };
-    onMount(()=> {
-        month = '' + (now.getMonth() + 1),
-        day = '' + now.getDate(),
-        year = now.getFullYear();
+          }
+      }
+  };
+  $: date = new Date();
+  $: dateString = date.toJSON().slice(0,10);
 
-        if (month.length < 2) 
-            month = '0' + month;
-        if (day.length < 2) 
-            day = '0' + day;
+  onMount(()=> {
+      totalEarning = summaries['total_earning'].toLocaleString();
+      totalExpense = '(' + summaries['total_expense'].toLocaleString() + ')';
 
-        dateString = [year, month, day].join('-');
-        totalEarning = summaries['total_earning'].toLocaleString();
-        totalExpense = '(' + summaries['total_expense'].toLocaleString() + ')';
-
-        const ctx = portfolio.getContext('2d');
-        var myChart = new Chart(ctx, config);
-    });
+      const ctx = portfolio.getContext('2d');
+      var myChart = new Chart(ctx, config);
+  });
 </script>
+
+<svelte:head>
+    <title>Tabunganku</title> 
+</svelte:head>
 
 <style src="./main.scss"></style>
 
