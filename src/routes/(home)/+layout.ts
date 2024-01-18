@@ -16,6 +16,7 @@ export const load: LayoutLoad = async ({data}) => {
   let keycloak = new Keycloak(instance);
   let kcInitOpts: KeycloakInitOptions = { 
     onLoad: "login-required",
+    checkLoginIframe: false,
   };
   
   let keycloakPromise;
