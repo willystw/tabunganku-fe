@@ -14,10 +14,10 @@ const config = {
 		adapter: adapter({
       out: 'build'
     }),
-    csp: {
-      mode: 'auto',
-			directives: cspDirectives,
-		}
+    // csp: {
+    //   mode: 'auto',
+    //   directives: cspDirectives,
+    // }
 	}
 };
 
