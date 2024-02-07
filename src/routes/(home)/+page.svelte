@@ -3,10 +3,10 @@
   let { summaries } = data;
 
   import Chart from 'chart.js/auto';
-  import { Colors } from 'chart.js';
+  // import { Colors } from 'chart.js';
   import { onMount } from 'svelte';
 
-  Chart.register(Colors);	
+  // Chart.register(Colors);	
   const chartData = {
     labels: summaries['available_categories'],
     datasets: [
@@ -43,6 +43,9 @@
                     size: 14
                 }
               }
+            },
+            colors: {
+              forceOverride: true
             },
             title: {
               display: true,
