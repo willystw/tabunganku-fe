@@ -3,56 +3,54 @@
   let { summaries } = data;
 
   import Chart from 'chart.js/auto';
-  // import { Colors } from 'chart.js';
   import { onMount } from 'svelte';
 
-  // Chart.register(Colors);	
   const chartData = {
     labels: summaries['available_categories'],
     datasets: [
       {
-          label: 'Earning',
-          data: summaries['earnings'],
-          hoverOffset: 10,
-          borderWidth: 0
+        label: 'Earning',
+        data: summaries['earnings'],
+        hoverOffset: 10,
+        borderWidth: 0
       },
       {
-          label: 'Expense',
-          data: summaries['expenses'],
-          borderWidth: 0,
-          hoverOffset: 10,
+        label: 'Expense',
+        data: summaries['expenses'],
+        borderWidth: 0,
+        hoverOffset: 10,
       }
     ]
   };
   const config = {
-      type: 'pie',
-      data: chartData,
-      options: {
-          borderRadius: '10',
-          responsive: true,
-          maintainAspectRatio: false,
-          spacing: 0,
-          plugins: {
-            legend: {
-              position: 'bottom',
-              display: true,
-              labels: {
-                usePointStyle: true,
-                padding: 20,
-                font: {
-                    size: 14
-                }
+    type: 'pie',
+    data: chartData,
+    options: {
+        borderRadius: '10',
+        responsive: true,
+        maintainAspectRatio: false,
+        spacing: 0,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            display: true,
+            labels: {
+              usePointStyle: true,
+              padding: 20,
+              font: {
+                  size: 14
               }
-            },
-            colors: {
-              forceOverride: true
-            },
-            title: {
-              display: true,
-              text: 'Portfolio'
             }
+          },
+          colors: {
+            forceOverride: true
+          },
+          title: {
+            display: true,
+            text: 'Portfolio'
           }
-      }
+        }
+    }
   };
   let time = new Date();
   $: dateString = time.toJSON().slice(0,10);
@@ -65,7 +63,7 @@
     const result = await fetch(`/api/transactions/summaries`, {
       method: 'POST',
       body: JSON.stringify(reqBody),
-    })
+    });
 
     if(result.status === 200) {
       const data = await result.json();
