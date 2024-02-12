@@ -2,7 +2,10 @@ version: "3"
 services:
   frontend:
     container_name: tabunganku-frontend
-    image: willystw/tabunganku-fe
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tabunganku-frontend
     ports:
       - 3000:3000
     env_file:
