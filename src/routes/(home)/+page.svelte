@@ -1,10 +1,9 @@
 <script>
-  export let data;
-  let { summaries } = data;
-
   import Chart from 'chart.js/auto';
   import { onMount } from 'svelte';
 
+  export let data;
+  let { summaries } = data;
   const chartData = {
     labels: summaries['available_categories'],
     datasets: [
@@ -52,8 +51,6 @@
         }
     }
   };
-  let time = new Date();
-  $: dateString = time.toJSON().slice(0,10);
 
   async function fetchSummaries(dateData) {
     const reqBody = {
@@ -103,8 +100,7 @@
   }
 
   let portfolio, myChart;
-  $: totalEarning = summaries['total_earning'];
-  $: totalExpense = summaries['total_expense'];
+  let time = new Date();
 
   onMount(()=> {
       const ctx = portfolio.getContext('2d');
@@ -122,19 +118,19 @@
     <div class="dashboard">
         <div class="dashboard__item">
             <div class="card bigvalue">
-                <strong class=" bigvalue__earning" title="Earning">{totalEarning.toLocaleString()}</strong>
+                <strong class=" bigvalue__earning" title="Earning">{summaries['total_earning'].toLocaleString()}</strong>
             </div>
         </div>
         <div class="dashboard__item">
             <div class="card bigvalue">
                 <a href="#!" id="prev_date_nav" title="Previous Date" on:click={prevDate}>&#8249;</a>
-                <strong>{dateString}</strong>
+                <strong>{time.toJSON().slice(0,10)}</strong>
                 <a href="#!" id="next_date_nav" title="Next Date" on:click={nextDate}>&#8250;</a>
             </div>
         </div>
         <div class="dashboard__item">
             <div class="card bigvalue">
-                <strong class="bigvalue__expense" title="Expense">({totalExpense.toLocaleString()})</strong>
+                <strong class="bigvalue__expense" title="Expense">({summaries['total_expense'].toLocaleString()})</strong>
             </div>
         </div>
         <div class="dashboard__item dashboard__item--full">
